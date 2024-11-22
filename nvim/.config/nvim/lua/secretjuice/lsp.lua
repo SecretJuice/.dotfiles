@@ -23,8 +23,8 @@ require('mason-lspconfig').setup({
   ensure_installed = {
       'ts_ls',
       'eslint',
-      'sumneko_lua',
       'gopls',
+      'lua_ls',
       'pyright'
   },
   handlers = {

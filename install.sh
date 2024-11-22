@@ -19,6 +19,8 @@ nix-env -iA \
 # stow all packages
 stow zsh
 stow nvim
+stow git
+stow tmux
 
 # add zsh to valid login shells
 command -v zsh | sudo tee -a /etc/shells
