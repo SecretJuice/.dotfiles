@@ -8,13 +8,15 @@ curl -L https://nixos.org/nix/install | sh --no-daemon
 # install plugins
 nix-env -iA \
 	nixpkgs.antibody \
+    nixpkgs.fzf \
 	nixpkgs.zsh \
 	nixpkgs.git \
 	nixpkgs.xclip \
 	nixpkgs.xsel \
 	nixpkgs.tmux \
 	nixpkgs.neovim \
-	nixpkgs.stow
+	nixpkgs.stow \
+    nixpkgs.tree
 
 # stow all packages
 stow zsh
