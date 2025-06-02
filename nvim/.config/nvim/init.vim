@@ -26,3 +26,5 @@ Plug 'L3MON4D3/LuaSnip'
 call plug#end()
 
 lua require('secretjuice')
+
+inoremap jj <Esc>
