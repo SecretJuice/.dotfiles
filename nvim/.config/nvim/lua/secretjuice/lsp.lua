@@ -15,17 +15,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
   end,
 })
+-- Autoformat on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.html", "*.tmpl" },
+  callback = function()
+    vim.lsp.buf.format({
+      async = false,
+      filter = function(client)
+        -- Optionally only use certain clients, like the html LSP
+        return client.name == "html"
+      end,
+    })
+  end,
+})
+
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
+  automatic_installation = true,
   ensure_installed = {
       'ts_ls',
       'eslint',
       'gopls',
       'lua_ls',
-      'pyright'
+      'pyright',
+      'html'
   },
   handlers = {
     function(server_name)
@@ -53,6 +69,22 @@ require('mason-lspconfig').setup({
         }
       })
     end,
+    html = function()
+        require('lspconfig').html.setup({
+            capabilities = lsp_capabilities,
+            filetypes = { 'html', 'template' },
+            settings = {
+                html = {
+                    format = {
+                        indentHandlbars = true,
+                        templating = 'handlebars',
+                        wrapAttributes = 'preserve-aligned',
+                    }
+                }
+            }
+        })
+    end,
+
   }
 })
 
