@@ -3,3 +3,5 @@
 	name = Connor Robb
 [credential]
     helper = store
+[core]
+	editor = nvim +startinsert
