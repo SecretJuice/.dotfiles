@@ -23,6 +23,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+Plug 'windwp/nvim-autopairs'
+
+
 call plug#end()
 
 lua require('secretjuice')

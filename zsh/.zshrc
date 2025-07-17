@@ -9,6 +9,8 @@ fi
 alias ls='ls -al'
 alias vim='nvim'
 
+alias 'gitshove'='git add . && git commit && git push'
+
 # KEYBINDINGS
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
