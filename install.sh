@@ -1,11 +1,11 @@
 # install nix
-curl -L https://nixos.org/nix/install | sh --no-daemon
-
+# curl -L https://nixos.org/nix/install | sh
 
 # source nix
-. ~/.nix-profile/etc/profile.d/nix.sh
+# . ~/.nix-profile/etc/profile.d/nix.sh
 
 # install plugins
+export NIXPKGS_ALLOW_BROKEN=1
 nix-env -iA \
 	nixpkgs.antibody \
     nixpkgs.fzf \
